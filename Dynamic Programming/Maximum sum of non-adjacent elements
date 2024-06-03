@@ -1,0 +1,21 @@
+import java.util.* ;
+import java.io.*; 
+import java.util.*;
+public class Solution {
+	public static int maximumNonAdjacentSum(ArrayList<Integer> nums) {
+		int dp[]=new int[nums.size()];
+		dp[0]=nums.get(0);
+	
+		for(int i=1;i<nums.size();i++)
+		{
+			int con=nums.get(i);
+			if(i>1){
+			con=nums.get(i)+dp[i-2];
+			}
+			int ncon=0+dp[i-1];
+			dp[i]=Math.max(con,ncon);
+		
+		}
+		return dp[nums.size()-1];
+	}
+}
