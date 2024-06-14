@@ -1,0 +1,13 @@
+public class Solution {
+   
+    public int majorityElement(final List<Integer> A) {
+        int a[]=new int[A.size()];
+        for(int i=0;i<A.size();i++)
+        {
+            a[i]=A.get(i);
+        }
+        Arrays.sort(a);
+        int len=a.length;
+        return a[len/2];
+    }
+}
