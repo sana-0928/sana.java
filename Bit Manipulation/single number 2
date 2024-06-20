@@ -1,0 +1,17 @@
+public class Solution {
+    public int singleNumber(final List<Integer> A) {
+        HashMap<Integer,Integer> hm=new HashMap<>();
+        for(int i=0;i<A.size();i++)
+        {
+          hm.put(A.get(i),hm.getOrDefault(A.get(i),0)+1);
+        }
+        for(HashMap.Entry<Integer,Integer> entry :hm.entrySet())
+        {
+            if(entry.getValue()==1)
+            {
+                return entry.getKey();
+            }
+        }
+        return -1;
+    }
+}
