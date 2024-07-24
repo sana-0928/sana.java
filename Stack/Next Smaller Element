@@ -1,0 +1,23 @@
+import java.util.*;
+import java.io.*;
+public class Solution{
+    static ArrayList<Integer> nextSmallerElement(ArrayList<Integer> arr, int n){
+      //  Write your code here.
+        int [] B =new int[n];
+        Arrays.fill(B,-1);
+        Stack<Integer> stack=new Stack<>();
+        ArrayList<Integer> al=new ArrayList<>();
+        for(int i=0;i<n;i++){
+            while(!stack.isEmpty() && arr.get(stack.peek()) > arr.get(i)){
+                B[stack.peek()]=arr.get(i);
+                stack.pop();
+            }
+            stack.push(i);
+        }
+        for(int i=0;i<B.length;i++){
+            al.add(B[i]);
+        }
+        return al;
+      
+    }
+}
